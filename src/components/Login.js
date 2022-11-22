@@ -40,7 +40,7 @@ const Login = (props) => {
                 .catch(err => console.log(err));
         }
         props.changeName(username);
-        navigate("/login");
+        navigate("/home");
     }
 
     return(

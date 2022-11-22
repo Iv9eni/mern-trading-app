@@ -5,7 +5,7 @@ import { Box, List, ListItem, ListItemButton, ListItemText, Drawer } from "@mui/
 const list = (locked) => (
     <Box>
         <List>
-            {['Shop', 'Offers', 'Log Out'].map(text => (
+            {['Home', 'Shop', 'Active Trades', 'Log Out'].map(text => (
                 <ListItem key={text} disablePadding>
                     <ListItemButton disabled={locked}>
                         <ListItemText primary={text}/>
@@ -25,7 +25,7 @@ export default class SideBar extends Component {
     render() {
         return(
             <Drawer 
-                variant="permanent" 
+                variant="permanent"
                 anchor="left"
                 sx={{
                     minWidth: 1000

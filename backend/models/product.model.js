@@ -4,11 +4,12 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
     name: { type: String, required: true },
+    description: { type: String, required: true},
     price: { type: String, required: true },
     stock: { type: Number, required: true },
     date: { type: Date, required: true },
     imageUrl: { type: Array, required: true},
-    owner: { type: String, required: true}
+    seller: { type: String, required: true}
 }, {
     timestamps: true,
 });
