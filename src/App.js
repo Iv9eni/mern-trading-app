@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { 
+  useNavigate, 
+  Navigate, 
+  BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Container } from '@mui/material';
+
+import SideBar from './components/SideBar';
+import Login from './components/Login';
+import Trade from './components/Trade';
 
 function App() {
+  const [profile, setProfile] = useState("")
+
+  const login = name => {
+    setProfile(name)
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Container>
+          <br/>
+          <SideBar username={profile} />
+          <Routes>
+            <Route path="/" element={<Navigate to="/login" />} />
+            <Route path="/login" exact element={<Login changeName={login} />} />
+            <Route path="/shop/:profile" exact element={<Trade />} />
+          </Routes>        
+        </Container>
+    </Router>
   );
 }
 
